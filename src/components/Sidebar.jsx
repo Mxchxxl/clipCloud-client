@@ -1,8 +1,13 @@
 const Sidebar = () =>
 {
     return (
-        <div className=" bg-gray-600  h-screen pt-[1px]">
-            <div className="flex flex-col gap-10 mt-20">
+        <div className=" bg-gray-600 w-fit h-screen pt-[1px]">
+            <div className="flex flex-col gap-10 ">
+                <div>
+                    <span>
+                        clipcloud
+                    </span>
+                </div>
                 <ul>
                     <li>Home</li>
                     <li>Explore</li>
