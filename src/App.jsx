@@ -4,6 +4,9 @@ import Home from './pages/Home/Home'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Explore from './pages/Home/Explore'
+
 
 function App()
 {
@@ -11,21 +14,29 @@ function App()
 
   return (
     <>
-      <div className='grid grid-cols-12 '>
+      <div className='flex flex-row '>
         {/* sidebar  */}
-        <nav className='col-span-2'>
+        <nav className=''>
           <Sidebar />
         </nav>
 
         {/* main section */}
-        <div className='col-span-10'>
+        <div className='w-full'>
 
           {/* topbar */}
           <div>
             <TopBar />
           </div>
-          <div>
 
+          {/* main section content */}
+          <div>
+           
+            <Routes>
+                <Route index path='/' element={<Home />}/>
+                <Route path='/explore' element={<Explore />} />
+            </Routes>
+           
+           
           </div>
         </div>
       </div>

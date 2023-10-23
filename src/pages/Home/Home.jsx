@@ -1,11 +1,16 @@
-// import "./home.scss"
+
+import VideoCard from "../../components/VideoCard"
+
 
 const Home = () =>
 {
     return (
 
 
-        <div>Home</div>
+        <div>Home
+
+            <VideoCard />
+        </div>
     )
 }
 
