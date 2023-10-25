@@ -14,14 +14,14 @@ function App()
 
   return (
     <>
-      <div className='flex flex-row '>
+      <div className='flex flex-row h-screen overflow-y-hidden '>
         {/* sidebar  */}
         <nav className=''>
           <Sidebar />
         </nav>
 
         {/* main section */}
-        <div className='w-full'>
+        <div className='w-full flex flex-col'>
 
           {/* topbar */}
           <div>
@@ -29,7 +29,7 @@ function App()
           </div>
 
           {/* main section content */}
-          <div>
+          <div className='relative  overflow-y-scroll bg-[#161616]'>
            
             <Routes>
                 <Route index path='/' element={<Home />}/>
