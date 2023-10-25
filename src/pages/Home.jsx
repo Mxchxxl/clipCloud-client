@@ -4,12 +4,19 @@ import VideoCard from "../components/VideoCard"
 
 const Home = () =>
 {
+    const dumyArray = new Array(20).fill("foo")
+
+    console.log(dumyArray)
     return (
 
 
         <div>Home
-
-            <VideoCard />
+{
+    dumyArray.map(object=>
+        <VideoCard />
+    )
+}
+            
         </div>
     )
 }

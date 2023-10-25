@@ -2,7 +2,7 @@ import {Link} from "react-router-dom"
 
 const VideoCard = ()=>{
     return (
-        <Link className="card">
+        <Link className="no-underline ">
 <div>
     <img src="" alt="" />
     <div>
