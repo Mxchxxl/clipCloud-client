@@ -2,12 +2,12 @@ import {Link} from "react-router-dom"
 
 const VideoCard = ()=>{
     return (
-        <Link>
+        <Link className="card">
 <div>
     <img src="" alt="" />
     <div>
         <img src="" alt="" />
-        <div>
+        <div >
             <span>test video</span>
             <span>michael</span>
                 <div><span>1 view</span> &middot; <span>2 mins ago</span></div>

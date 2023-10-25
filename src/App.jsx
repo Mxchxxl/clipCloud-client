@@ -1,11 +1,11 @@
 import './App.css'
 
-import Home from './pages/Home/Home'
+import Home from './pages/Home'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Explore from './pages/Home/Explore'
+import Explore from './pages/Explore'
 
 
 function App()

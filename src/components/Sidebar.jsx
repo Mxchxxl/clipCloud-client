@@ -1,38 +1,52 @@
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
+import LibraryMusicOutlinedIcon from '@mui/icons-material/LibraryMusicOutlined';
+import YoutubeSearchedForOutlinedIcon from '@mui/icons-material/YoutubeSearchedForOutlined';
+import MusicVideoOutlinedIcon from '@mui/icons-material/MusicVideoOutlined';
+import ScoreboardOutlinedIcon from '@mui/icons-material/ScoreboardOutlined';
+import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
+import MovieFilterOutlinedIcon from '@mui/icons-material/MovieFilterOutlined'
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined'
+import HelpCenterOutlinedIcon from '@mui/icons-material/HelpCenterOutlined';
+
 const Sidebar = () =>
 {
     return (
-        <div className=" bg-gray-600 w-fit h-screen pt-[1px]">
-            <div className="flex flex-col gap-10 ">
-                <div>
-                    <span>
+        <div className=" bg-[#202020] w-fit h-screen pt-[1px]">
+            <div className="flex flex-col  px-4">
+                <div className='pt-3'>
+                    <span className='text-3xl font-bold  text-red-600'>
                         clipcloud
                     </span>
                 </div>
-                <ul>
-                    <li>Home</li>
-                    <li>Explore</li>
-                    <li>Subscriptions</li>
+                <ul className='sidebar-section'>
+                    <li> <HomeOutlinedIcon />  Home</li>
+                    <li> <ExploreOutlinedIcon /> Explore</li>
+                    <li> <SubscriptionsOutlinedIcon />  Subscriptions</li>
 
                 </ul>
 
-                <ul>
-                    <li>Library</li>
-                    <li>History</li>
+                <ul className='sidebar-section'>
+                    <li> <LibraryMusicOutlinedIcon />  Library</li>
+                    <li> <YoutubeSearchedForOutlinedIcon />  History</li>
                 </ul>
 
-                <ul>
-                    <li>Music</li>
-                    <li>Sports</li>
-                    <li>Gaming</li>
-                    <li>Movies</li>
-                    <li>News</li>
+                <ul className='sidebar-section'>
+                    <li> <MusicVideoOutlinedIcon />  Music</li>
+                    <li> <ScoreboardOutlinedIcon />  Sports</li>
+                    <li> <SportsEsportsOutlinedIcon />  Gaming</li>
+                    <li> <MovieFilterOutlinedIcon />  Movies</li>
+                    <li> <NewspaperOutlinedIcon />  News</li>
 
                 </ul>
 
-                <ul>
-                    <li>Settings</li>
-                    <li>Report</li>
-                    <li>Help</li>
+                <ul className='sidebar-section'>
+                    <li> <SettingsOutlinedIcon />  Settings</li>
+                    <li> <OutlinedFlagOutlinedIcon />  Report</li>
+                    <li> <HelpCenterOutlinedIcon />  Help</li>
 
                 </ul>
             </div>
