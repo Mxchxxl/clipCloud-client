@@ -10,7 +10,7 @@ const Home = () =>
     return (
 
 
-        <div>Home
+        <div >
 {
     dumyArray.map(object=>
         <VideoCard />

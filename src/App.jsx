@@ -28,8 +28,8 @@ function App()
             <TopBar />
           </div>
 
-          {/* main section content */}
-          <div className='relative  overflow-y-scroll bg-[#161616]'>
+          {/* main section contentbg-[#161616] */}
+          <div className='main-content relative  overflow-y-scroll  h-full p-5 flex items-center justify-center'>
            
             <Routes>
                 <Route index path='/' element={<Home />}/>
