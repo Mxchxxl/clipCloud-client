@@ -12,7 +12,7 @@
   @apply list-none py-5 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0
 }
 
-.sidebar-section li {
+.sidebar-section li a{
   @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5
 }
 
@@ -26,3 +26,13 @@
     
   }
 }
+
+.settings-group  {
+  @apply list-none text-white capitalize;
+}
+
+.settings-group li {
+  @apply flex flex-row justify-between w-3/6 mx-auto
+}
+
+/* .settings-group li input[type = ] */
