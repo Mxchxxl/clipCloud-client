@@ -6,6 +6,7 @@ import TopBar from './components/TopBar'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Explore from './pages/Explore'
+import Settings from './pages/Settings'
 
 
 function App()
@@ -28,12 +29,13 @@ function App()
             <TopBar />
           </div>
 
-          {/* main section contentbg-[#161616] */}
-          <div className='main-content relative  overflow-y-scroll  h-full p-5 flex items-center justify-center'>
+          {/* main section content */}
+          <div className='main-content relative  bg-[#161616] overflow-y-scroll  h-full p-5 flex items-center justify-center'>
            
             <Routes>
                 <Route index path='/' element={<Home />}/>
                 <Route path='/explore' element={<Explore />} />
+              <Route path='/settings' element={<Settings />} />
             </Routes>
            
            

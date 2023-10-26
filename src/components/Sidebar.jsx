@@ -11,6 +11,7 @@ import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined'
 import HelpCenterOutlinedIcon from '@mui/icons-material/HelpCenterOutlined';
+import { Link } from 'react-router-dom'
 
 const Sidebar = () =>
 {
@@ -23,30 +24,30 @@ const Sidebar = () =>
                     </span>
                 </div>
                 <ul className='sidebar-section'>
-                    <li> <HomeOutlinedIcon />  Home</li>
-                    <li> <ExploreOutlinedIcon /> Explore</li>
-                    <li> <SubscriptionsOutlinedIcon />  Subscriptions</li>
+                    <li><Link to={''}><HomeOutlinedIcon />  Home</Link> </li>
+                    <li><Link><ExploreOutlinedIcon /> Explore</Link> </li>
+                    <li><Link> <SubscriptionsOutlinedIcon />  Subscriptions</Link></li>
 
                 </ul>
 
                 <ul className='sidebar-section'>
-                    <li> <LibraryMusicOutlinedIcon />  Library</li>
-                    <li> <YoutubeSearchedForOutlinedIcon />  History</li>
+                    <li><Link> <LibraryMusicOutlinedIcon />  Library</Link></li>
+                    <li><Link><YoutubeSearchedForOutlinedIcon />  History</Link> </li>
                 </ul>
 
                 <ul className='sidebar-section'>
-                    <li> <MusicVideoOutlinedIcon />  Music</li>
-                    <li> <ScoreboardOutlinedIcon />  Sports</li>
-                    <li> <SportsEsportsOutlinedIcon />  Gaming</li>
-                    <li> <MovieFilterOutlinedIcon />  Movies</li>
-                    <li> <NewspaperOutlinedIcon />  News</li>
+                    <li><Link> <MusicVideoOutlinedIcon />  Music</Link></li>
+                    <li><Link><ScoreboardOutlinedIcon />  Sports</Link> </li>
+                    <li><Link><SportsEsportsOutlinedIcon />  Gaming</Link> </li>
+                    <li><Link><MovieFilterOutlinedIcon />  Movies</Link> </li>
+                    <li><Link><NewspaperOutlinedIcon />  News</Link> </li>
 
                 </ul>
 
                 <ul className='sidebar-section'>
-                    <li> <SettingsOutlinedIcon />  Settings</li>
-                    <li> <OutlinedFlagOutlinedIcon />  Report</li>
-                    <li> <HelpCenterOutlinedIcon />  Help</li>
+                    <li><Link to={'settings'}> <SettingsOutlinedIcon />  Settings</Link></li>
+                    <li><Link><OutlinedFlagOutlinedIcon />  Report</Link></li>
+                    <li><Link> <HelpCenterOutlinedIcon />  Help</Link></li>
 
                 </ul>
             </div>
