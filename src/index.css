@@ -16,19 +16,19 @@
   @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5
 }
 
-.main-content {
+/* .main-content {
   >*{
    
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+    padding-block-end: 900px
   }
-}
+} */
 
 .settings-group  {
-  @apply list-none text-white capitalize;
+  @apply list-none text-white capitalize ;
 }
 
 .settings-group li {
@@ -36,3 +36,29 @@
 }
 
 /* .settings-group li input[type = ] */
+
+
+.signin-form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  input {
+    width: 250px;
+    outline: none;
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  >div {
+    display: flex;
+    flex-direction: column;
+    
+
+    label {
+      text-transform: capitalize;
+    }
+  }
+}
+

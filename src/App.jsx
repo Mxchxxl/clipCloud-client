@@ -7,41 +7,59 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Explore from './pages/Explore'
 import Settings from './pages/Settings'
-
+import Category from './pages/Category'
+import Subscriptions from './pages/Subscriptions'
+import SignIn from './pages/SignIn'
+import { useLocation } from 'react-router-dom'
 
 function App()
 {
-  const [ count, setCount ] = useState( 0 )
+  const location = useLocation()
+  const isAuthRoute = location.pathname === '/signin'
+
+  console.log( isAuthRoute )
 
   return (
     <>
-      <div className='flex flex-row h-screen overflow-y-hidden '>
-        {/* sidebar  */}
-        <nav className=''>
-          <Sidebar />
-        </nav>
+      <Routes>
+        <Route path='/signin' element={<SignIn />} />
+      </Routes>
 
-        {/* main section */}
-        <div className='w-full flex flex-col'>
+      {
+        !isAuthRoute &&
+        <div className='flex flex-row h-screen overflow-y-hidden '>
+          {/* sidebar  */}
+          <nav className=''>
+            <Sidebar />
+          </nav>
 
-          {/* topbar */}
-          <div>
-            <TopBar />
-          </div>
+          {/* main section */}
+          <div className='w-full flex flex-col'>
 
-          {/* main section content */}
-          <div className='main-content relative  bg-[#161616] overflow-y-scroll  h-full p-5 flex items-center justify-center'>
-           
-            <Routes>
-                <Route index path='/' element={<Home />}/>
+            {/* topbar */}
+            <div>
+              <TopBar />
+            </div>
+
+            {/* main section content */}
+
+            {/* relative  bg-[#161616] overflow-y-scroll  h-full p-5 flex items-center justify-center */}
+            <div className='main-content bg-[#161616] overflow-y-scroll h-full p-5 flex flex-wrap'>
+
+              <Routes>
+                <Route index path='/' element={<Home />} />
                 <Route path='/explore' element={<Explore />} />
-              <Route path='/settings' element={<Settings />} />
-            </Routes>
-           
-           
+                <Route path='/settings' element={<Settings />} />
+                <Route path='/subscriptions' element={<Subscriptions />} />
+                <Route path='/category/:category' element={<Category />} />
+              </Routes>
+
+
+            </div>
           </div>
         </div>
-      </div>
+
+      }
 
 
     </>
