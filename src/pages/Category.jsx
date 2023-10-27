@@ -1,10 +1,11 @@
 import VideoCard from "../components/VideoCard"
+import { useParams } from "react-router-dom"
 
-const Explore = () =>
-{
+const Category = ()=>{
     const dumyArray = new Array( 20 ).fill( "foo" )
-
-    console.log( dumyArray )
+const  {category } = useParams()
+console.log(category)
+    
     return (
 
 
@@ -19,5 +20,4 @@ const Explore = () =>
     )
 }
 
-
-export default Explore
+export default Category

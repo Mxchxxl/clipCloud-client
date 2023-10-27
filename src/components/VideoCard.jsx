@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const VideoCard = () =>
 {
     return (
-        <Link className="no-underline inline-block  m-2 max-w-[288px]">
+        <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10">
             <div> 
                 <img src="" alt=""  className="w-72 h-44 "/>
                 <div className="mt-3 grid grid-cols-8 w-full">

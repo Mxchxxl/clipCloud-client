@@ -25,22 +25,22 @@ const Sidebar = () =>
                 </div>
                 <ul className='sidebar-section'>
                     <li><Link to={''}><HomeOutlinedIcon />  Home</Link> </li>
-                    <li><Link><ExploreOutlinedIcon /> Explore</Link> </li>
-                    <li><Link> <SubscriptionsOutlinedIcon />  Subscriptions</Link></li>
+                    <li><Link to={'explore'}><ExploreOutlinedIcon /> Explore</Link> </li>
+                    <li><Link to={'subscriptions'}> <SubscriptionsOutlinedIcon />  Subscriptions</Link></li>
 
                 </ul>
 
                 <ul className='sidebar-section'>
-                    <li><Link> <LibraryMusicOutlinedIcon />  Library</Link></li>
-                    <li><Link><YoutubeSearchedForOutlinedIcon />  History</Link> </li>
+                    <li><Link to={'library'}> <LibraryMusicOutlinedIcon />  Library</Link></li>
+                    <li><Link to={'history'}><YoutubeSearchedForOutlinedIcon />  History</Link> </li>
                 </ul>
 
                 <ul className='sidebar-section'>
-                    <li><Link> <MusicVideoOutlinedIcon />  Music</Link></li>
-                    <li><Link><ScoreboardOutlinedIcon />  Sports</Link> </li>
-                    <li><Link><SportsEsportsOutlinedIcon />  Gaming</Link> </li>
-                    <li><Link><MovieFilterOutlinedIcon />  Movies</Link> </li>
-                    <li><Link><NewspaperOutlinedIcon />  News</Link> </li>
+                    <li><Link to={'category/music'}> <MusicVideoOutlinedIcon />  Music</Link></li>
+                    <li><Link to={'category/sports'}><ScoreboardOutlinedIcon />  Sports</Link> </li>
+                    <li><Link to={'category/gaming'}><SportsEsportsOutlinedIcon />  Gaming</Link> </li>
+                    <li><Link to={'category/movies'}><MovieFilterOutlinedIcon />  Movies</Link> </li>
+                    <li><Link to={'category/news'}><NewspaperOutlinedIcon />  News</Link> </li>
 
                 </ul>
 

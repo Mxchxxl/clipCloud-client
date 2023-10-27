@@ -1,6 +1,6 @@
 import VideoCard from "../components/VideoCard"
 
-const Explore = () =>
+const Subscriptions = () =>
 {
     const dumyArray = new Array( 20 ).fill( "foo" )
 
@@ -20,4 +20,4 @@ const Explore = () =>
 }
 
 
-export default Explore
+export default Subscriptions
