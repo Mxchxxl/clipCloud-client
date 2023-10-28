@@ -11,6 +11,8 @@ import Category from './pages/Category'
 import Subscriptions from './pages/Subscriptions'
 import SignIn from './pages/SignIn'
 import { useLocation } from 'react-router-dom'
+import Upload from './pages/Upload'
+import Video from './pages/Video'
 
 function App()
 {
@@ -52,6 +54,8 @@ function App()
                 <Route path='/settings' element={<Settings />} />
                 <Route path='/subscriptions' element={<Subscriptions />} />
                 <Route path='/category/:category' element={<Category />} />
+                <Route path='/video/:videoId' element={<Video />} />
+                <Route path='/upload' element={<Upload />} />
               </Routes>
 
 

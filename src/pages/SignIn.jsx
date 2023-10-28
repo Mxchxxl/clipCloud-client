@@ -41,7 +41,7 @@ const submitForm =(e) =>{
                         <input type="password" />
                     </div>
                     <button onClick={submitForm} className="w-full bg-red-900 rounded-xl font-normal capitalize text-xl py-2 inline-block">{mode}</button>
-                <p >or <span className="font-bold capitalize underline text-blue-600" onClick={setFormMode}>{alternativeMode}</span></p>
+                <p >or <span className="font-bold capitalize underline text-blue-600 cursor-pointer" onClick={setFormMode}>{alternativeMode}</span></p>
                 </form>
           
            <p>or signin with</p>
