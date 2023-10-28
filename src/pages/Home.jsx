@@ -13,7 +13,7 @@ const Home = () =>
         <div >
 {
     dumyArray.map(object=>
-        <VideoCard />
+        <VideoCard videoLink={'/video/123434'}/>
     )
 }
             

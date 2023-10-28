@@ -13,7 +13,11 @@ const TopBar = () =>
                     <SearchOutlinedIcon className='text-[#3d3a3a]'/>
                 </div>
                 <div className='absolute -right-0'>
-                    <Link className=" inline-block h-8 text-white flex gap-1 border rounded-sm border-solid p-1 capitalize" to="/signin">
+
+
+                    {/* add upload icon from mui */}
+                    <Link className='hidden h-8 text-white flex gap-1 border rounded-sm border-solid p-1 capitalize' to={'/upload'}>Upload</Link>
+                    <Link className=" inline-block h-8 text-white flex gap-1 border rounded-sm border-solid p-1 capitalize" to={"/signin"}>
                     signin
                         <AccountCircleOutlinedIcon />
                     </Link>

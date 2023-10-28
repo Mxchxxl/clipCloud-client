@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-const VideoCard = () =>
+const VideoCard = ({videoLink}) =>
 {
     return (
-        <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10">
+        <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10" to={videoLink}>
             <div> 
                 <img src="" alt=""  className="w-72 h-44 "/>
                 <div className="mt-3 grid grid-cols-8 w-full">

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 
-:root{
---topbar-height: 200px;
+:root {
+  --topbar-height: 200px;
 }
 
 
@@ -12,7 +12,7 @@
   @apply list-none py-5 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0
 }
 
-.sidebar-section li a{
+.sidebar-section li a {
   @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5
 }
 
@@ -27,8 +27,8 @@
   }
 } */
 
-.settings-group  {
-  @apply list-none text-white capitalize ;
+.settings-group {
+  @apply list-none text-white capitalize;
 }
 
 .settings-group li {
@@ -38,27 +38,30 @@
 /* .settings-group li input[type = ] */
 
 
-.signin-form{
+.signin-form, .upload-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  input {
-    width: 250px;
-    outline: none;
-    border: 1px solid white;
-    background-color: transparent;
-    padding: 8px;
-    border-radius: 5px;
-  }
-  >div {
-    display: flex;
-    flex-direction: column;
-    
-
-    label {
-      text-transform: capitalize;
-    }
-  }
 }
 
+
+.signin-form input,
+.upload-form input {
+  width: 250px;
+  outline: none;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.signin-form>div,
+.upload-form>div {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-form label,
+.upload-form label {
+  text-transform: capitalize;
+}
