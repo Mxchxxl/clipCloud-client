@@ -46,7 +46,7 @@ function App()
             {/* main section content */}
 
             {/* relative  bg-[#161616] overflow-y-scroll  h-full p-5 flex items-center justify-center */}
-            <div className='main-content bg-[#161616] overflow-y-scroll h-full p-5 flex flex-wrap'>
+            <div className='main-content bg-[#161616] overflow-y-scroll h-full p-5 '>
 
               <Routes>
                 <Route index path='/' element={<Home />} />

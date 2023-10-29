@@ -4,11 +4,11 @@ const Upload = ()=>{
     return (
         <div className="text-white w-full h-full flex flex-col gap-10 justify-center items-center">
             <header>
-                <h1 className="text-white text-3xl capitalize font-extrabold">
+                <h1 className="text-white lg:text-3xl capitalize font-extrabold">
                     upload video
                 </h1>
             </header>
-            <form className=" upload-form" action="">
+            <form className="max-w-sm upload-form" action="">
                 <div>
                     <label htmlFor="title">name</label>
                     <input type="text" name="title" />
@@ -27,10 +27,10 @@ const Upload = ()=>{
 
                 <div>
                     <label htmlFor="video">video</label>
-                    <input type="file" name="video" id="" />
+                    <input className="" type="file" name="video" id="" />
                 </div>
 
-                <button className="w-full bg-red-900 rounded-xl font-normal text-white  text-xl py-2 inline-block">post</button>
+                <button className="w-full bg-red-900 rounded-xl font-normal text-white  text-sm py-1 capitalize lg:py-2 inline-block">post</button>
 
             </form>
         </div>
