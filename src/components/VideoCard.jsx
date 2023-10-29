@@ -5,7 +5,7 @@ const VideoCard = ({videoLink}) =>
     return (
         <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10" to={videoLink}>
             <div> 
-                <img src="" alt=""  className="w-72 h-44 "/>
+                <img src="" alt=""  className="w-full aspect-video "/>
                 <div className="mt-3 grid grid-cols-8 w-full">
                     <img className="w-8 h-8" src="" alt="" />
                     <div className="col-start-2 col-span-6 ml-3 flex flex-col">

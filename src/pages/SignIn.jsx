@@ -22,10 +22,10 @@ const submitForm =(e) =>{
     return (
 
 
-        <div className="w-screen h-screen bg-[#161616] text-white flex flex-col gap-10 justify-center items-center">
+        <div className=" relative w-screen h-screen bg-[#161616] text-white flex flex-col gap-10 justify-center items-center">
           
             
-                <form action="" className="signin-form bg-[#202020] p-10 rounded-xl">
+                <form action="" className="signin-form bg-[#202020] p-2 md:p-10 rounded-xl max-w-sm">
                     <div>
                         <label htmlFor="name">name</label>
                         <input type="text" name="name" />
@@ -40,15 +40,15 @@ const submitForm =(e) =>{
                         <label htmlFor="password">password</label>
                         <input type="password" />
                     </div>
-                    <button onClick={submitForm} className="w-full bg-red-900 rounded-xl font-normal capitalize text-xl py-2 inline-block">{mode}</button>
-                <p >or <span className="font-bold capitalize underline text-blue-600 cursor-pointer" onClick={setFormMode}>{alternativeMode}</span></p>
+                    <button onClick={submitForm} className="w-full bg-red-900 rounded-xl font-normal capitalize  md:text-xl  py-1 md:py-2 inline-block">{mode}</button>
+                <p className="text-xs" >or <span className="font-bold capitalize underline text-blue-600 cursor-pointer" onClick={setFormMode}>{alternativeMode}</span></p>
                 </form>
           
-           <p>or signin with</p>
+           <p className="text-xs">or signin with</p>
 
-            <div className="flex flex-row gap-5 bg-[#202020] rounded-xl p-5">
-                <Link >google</Link>
-                <Link >github</Link>
+            <div className="flex flex-row w-full  justify-around max-w-sm">
+                <Link className="alt-signin-icon" >google</Link>
+                <Link className="alt-signin-icon" >github</Link>
             </div>
 
 

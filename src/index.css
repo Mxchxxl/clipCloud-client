@@ -7,32 +7,38 @@
   --topbar-height: 200px;
 }
 
-
-.sidebar-section {
-  @apply list-none py-5 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0
+*{
+  scrollbar-width: none;
 }
 
+
+.sidebar-section {
+  @apply list-none py-3 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0 sm:py-1 lg:py-3
+}
+
+
+
 .sidebar-section li a {
-  @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5
+  @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5 sm:flex-col sm:gap-0 sm:items-center lg:flex-row lg:gap-5 
 }
 
 /* .main-content {
   >*{
    
-    height: 100%;
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-block-end: 900px
+    
   }
 } */
 
 .settings-group {
-  @apply list-none text-white capitalize;
+  @apply list-none text-white capitalize flex flex-col gap-10;
 }
 
 .settings-group li {
-  @apply flex flex-row justify-between w-3/6 mx-auto
+  @apply flex flex-row justify-between 
 }
 
 /* .settings-group li input[type = ] */
@@ -42,15 +48,18 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 90%;
+  
 }
 
 
 .signin-form input,
 .upload-form input {
-  width: 250px;
+  width: 100%;
   outline: none;
   border: 1px solid white;
   background-color: transparent;
+  height: 30px;
   padding: 8px;
   border-radius: 5px;
 }
@@ -64,4 +73,14 @@
 .signin-form label,
 .upload-form label {
   text-transform: capitalize;
+  font-size: .8rem;
+}
+
+
+.active-tab {
+  @apply  after:block after:h-0.5 after:opacity-50 after:bg-red-900 after:w-full after:absolute after:bottom-0 after:left-0
+}
+
+.alt-signin-icon {
+  @apply bg-[#202020] p-2 gap-1 rounded-xl 
 }
