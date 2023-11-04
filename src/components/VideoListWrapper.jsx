@@ -1,8 +1,9 @@
 
-const VideoListWrapper = ({children})=>{
+const VideoListWrapper = ( { children } ) =>
+{
     return (
         <div className="flex flex-wrap justify-center">
-            {children}
+            {children ? children : "nothing"}
         </div>
     )
 }

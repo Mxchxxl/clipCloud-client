@@ -1,22 +1,39 @@
+import { useEffect, useState } from "react"
 
+import Empty from "../components/Empty"
 import VideoCard from "../components/VideoCard"
 import VideoListWrapper from "../components/VideoListWrapper"
+import axios from "axios"
 
 const Home = () =>
 {
-    const dumyArray = new Array(20).fill("foo")
 
-    console.log(dumyArray)  
+    const [ videos, setVideos ] = useState( null )
+
+    const fetchVideos = async () =>
+    {
+        const response = await axios.get( '/api/video/random' )
+        // console.log( response.data )
+        setVideos( response.data )
+    }
+
+    useEffect( () =>
+    {
+        fetchVideos()
+    }, [] )
     return (
 
 
         <VideoListWrapper >
-{
-    dumyArray.map(object=>
-        <VideoCard videoLink={'/video/123434'}/>
-    )
-}
-            
+            {videos?.length >= 1 ? (
+                videos.map( ( object, index ) =>
+                    <VideoCard key={`video-${ index }`} video={object} />
+                )
+            ) : (
+                <Empty />
+            )
+            }
+
         </VideoListWrapper>
     )
 }

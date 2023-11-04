@@ -1,25 +1,49 @@
 import './App.css'
 
-import Home from './pages/Home'
-import Sidebar from './components/Sidebar'
-import TopBar from './components/TopBar'
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Explore from './pages/Explore'
-import Settings from './pages/Settings'
+import { Route, Routes } from 'react-router-dom'
+
 import Category from './pages/Category'
-import Subscriptions from './pages/Subscriptions'
+import Explore from './pages/Explore'
+import History from './pages/History'
+import Home from './pages/Home'
+import Library from './pages/Library'
+import SearchResults from './pages/SearchResults'
+import Settings from './pages/Settings'
+import Sidebar from './components/Sidebar'
 import SignIn from './pages/SignIn'
-import { useLocation } from 'react-router-dom'
+import Subscriptions from './pages/Subscriptions'
+import TopBar from './components/TopBar'
 import Upload from './pages/Upload'
 import Video from './pages/Video'
+import axios from 'axios'
+import { updateUser } from './redux/userSlice'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 function App()
 {
   const location = useLocation()
   const isAuthRoute = location.pathname === '/signin'
 
-  console.log( isAuthRoute )
+  const dispatch = useDispatch()
+
+  // console.log( isAuthRoute )
+
+  useEffect( () =>
+  {
+    const verifyUser = async () =>
+    {
+      let request = await axios.post( '/api/auth/verify', { withCredentials: true } )
+      if ( request.data.status )
+      {
+        dispatch( updateUser( null ) )
+      }
+    }
+
+    verifyUser()
+  }
+  )
 
   return (
     <>
@@ -50,7 +74,10 @@ function App()
 
               <Routes>
                 <Route index path='/' element={<Home />} />
+                <Route path='/search/*' element={<SearchResults />} />
                 <Route path='/explore' element={<Explore />} />
+                <Route path='/history' element={<History />} />
+                <Route path='/library' element={<Library />} />
                 <Route path='/settings' element={<Settings />} />
                 <Route path='/subscriptions' element={<Subscriptions />} />
                 <Route path='/category/:category' element={<Category />} />

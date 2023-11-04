@@ -22,16 +22,6 @@
   @apply text-white flex flex-row gap-5 py-2 hover:bg-[#3d3a3a] rounded-sm px-0.5 sm:flex-col sm:gap-0 sm:items-center lg:flex-row lg:gap-5 
 }
 
-/* .main-content {
-  >*{
-   
-    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-  }
-} */
 
 .settings-group {
   @apply list-none text-white capitalize flex flex-col gap-10;
@@ -83,4 +73,11 @@
 
 .alt-signin-icon {
   @apply bg-[#202020] p-2 gap-1 rounded-xl 
+}
+
+
+
+
+.upload-status-percent{
+  
 }
