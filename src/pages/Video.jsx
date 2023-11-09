@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from "react"
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Comment from "../components/Comment"
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
@@ -86,7 +87,7 @@ const Video = () =>
         // console.log( video )
         try
         {
-            console.log( video )
+
             const { userId } = video
             const request = await axios.get( `/api/user/find/${ userId }` )
             setPoster( request.data )
@@ -105,15 +106,22 @@ const Video = () =>
         {
             const { tags } = video
             const request = await axios.get( `/api/video/tag?tags=${ tags.join( ',' ) }` )
-            if ( request.data.length <= 5 )
+
+            let recommendations = request.data
+            if ( recommendations.length <= 5 )
             {
                 const response2 = await axios.get( '/api/video/random' )
 
-                setRecommendations( new Array( new Set( [ ...request.data, ...response2.data ] ) ) )
-            } else
-            {
-                setRecommendations( new Array( new Set( [ ...request.data ] ) ) )
+                recommendations = [ ...recommendations, ...response2.data ]
+                // console.log( request.data )
+                // console.log( response2.data )
             }
+
+            const uniqueRecs = recommendations.filter(
+                ( v, i, arr ) => arr.findIndex( o => o._id === v._id ) === i
+            )
+
+            setRecommendations( [ ...uniqueRecs ] )
 
         } catch ( e )
         {
@@ -292,7 +300,7 @@ const Video = () =>
         }
         getData()
 
-    }, [] )
+    }, [ videoId ] )
 
     useEffect( () =>
     {
@@ -330,7 +338,9 @@ const Video = () =>
                     </div>
 
                     <div className="relative border-t border-b border-solid border-[#a3a6a9] p-2 grid grid-cols-12 py-5 my-1 ">
-                        <img className="col-start-1 col-span-2 w-10 h-10 rounded" src={poster.img} alt="" />
+                        {
+                            poster.img ? <img className="col-start-1 col-span-2 w-10 h-10 rounded" src={poster.img} alt="" /> : <AccountCircleIcon className=" text-red-600" />
+                        }
                         <div className="col-start-3 col-span-10">
                             <div>
                                 <h3>{poster.name}</h3>
@@ -338,7 +348,7 @@ const Video = () =>
                             </div>
                             <p onClick={toggleVideoDescription} className="text-xs overflow-hidden">
                                 {video.desc}
-                                <span className="text-xs block">tags: {video.tags.join( ", " )}</span>
+                                <span className="text-xs block">tags: {video.tags?.join( ", " )}</span>
                             </p>
                         </div>
                         {
@@ -356,7 +366,10 @@ const Video = () =>
                         <div className="flex flex-row flex-nowrap">
                             <div className={`${ activeTab === "comments" ? "w-full" : "hidden" } lg:w-full lg:block`}>
                                 <form onSubmit={( e ) => { e.preventDefault() }} action="" className="grid grid-cols-10">
-                                    <img src="" alt="" className="col-start-1 col-span-1 w-10 h-10 " />
+                                    {
+                                        user?.img ? <img src="" alt="" className="col-start-1 col-span-1 w-10 h-10 " /> : <AccountCircleIcon className=" text-red-600" />
+                                    }
+
                                     <input className="col-start-2 col-span-9 bg-transparent  outline-none" type="text" placeholder="add a comment..." value={comment} onChange={handleCommentInput} />
                                     <button onClick={postComment} className="col-start-8 col-span-1 bg-red-900 h-fit w-fit   p-2 rounded-sm md:col-start-9">comment</button>
                                 </form>
@@ -371,8 +384,10 @@ const Video = () =>
                             </div>
 
                             <div className={`${ activeTab === "recommendations" ? "w-full" : "hidden" } grid grid-cols-1 lg:hidden`}>
+
                                 {
-                                    recommendations.map( ( video ) => <SmallVideoCard key={`side-recommendations-${ video._id }`} /> )
+
+                                    recommendations.map( ( video ) => <SmallVideoCard key={`side-recommendations-${ video._id }`} video={video} /> )
                                 }
                             </div>
                         </div>
@@ -380,8 +395,10 @@ const Video = () =>
                 </div>
             </div>
             <div className="hidden lg:block lg:col-start-9 lg:col-span-3">
+
                 {
-                    recommendations.map( ( video ) => <SmallVideoCard key={`bottom-recommendations-${ video._id }`} /> )
+
+                    recommendations.map( ( video ) => <SmallVideoCard key={`bottom-recommendations-${ video._id }`} video={video} /> )
                 }
             </div>
 
