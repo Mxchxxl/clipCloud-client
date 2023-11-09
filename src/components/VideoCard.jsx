@@ -24,7 +24,7 @@ const VideoCard = ( { video } ) =>
     return (
         <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10" to={`/video/${ video._id }`}>
             <div>
-                <video src={`${ video.imgUrl }`} alt="" className="w-full aspect-video " />
+                <img src={`${ video.imgUrl }`} alt="" className="w-full aspect-video " />
                 <div className="mt-3 grid grid-cols-8 w-full">
                     {userChannel.img ?
                         <img className="w-8 h-8" src={`${ userChannel.img }`} alt="" />

@@ -323,11 +323,11 @@ const Video = () =>
                 <div className="flex flex-col  gap-2">
                     {video.imgUrl &&
                         <video
-                            src={video.imgUrl}
+                            src={video.videoUrl}
                             controls
                             autoPlay
-                            muted
-                            playsInline
+
+
                         ></video>
                     }
                     <span className="capitalize xs:text-xl">{video.title}</span>

@@ -14,6 +14,7 @@ const Upload = () =>
     const { user } = useSelector( state => state.user )
 
     const videoInputRef = useRef( null )
+    const thumbnailInputRef = useRef( null )
     const fromMessageRef = useRef( null )
 
 
@@ -39,6 +40,9 @@ const Upload = () =>
         {
 
             const video = videoInputRef.current.files[ 0 ]
+            const thumbnail = thumbnailInputRef.current.files[ 0 ]
+
+
             setUploadPercentage( 5 )
 
 
@@ -53,19 +57,30 @@ const Upload = () =>
                     video
                 )
 
-                setUploadPercentage( 40 )
+                setUploadPercentage( 30 )
+
+
+                const thumbnailResponse = await storage.createFile(
+                    videoBucketId,
+                    'unique()',
+                    thumbnail
+                )
 
 
                 const videoID = videoResponse.$id
+                const thumbnailID = thumbnailResponse.$id
 
                 const videoURL = storage.getFileView( videoBucketId, videoID )
+                const thumbnailURL = storage.getFileView( videoBucketId, thumbnailID )
 
                 setUploadPercentage( 60 )
 
                 const formattedTags = formValues.tags.split( ',' ).map( tag => tag.trim() )
 
 
-                const videoObject = { ...formValues, "imgUrl": videoURL.href, "userId": user._id, "tags": formattedTags }
+                const videoObject = {
+                    ...formValues, "imgUrl": thumbnailURL.href, 'videoUrl': videoURL.href, "userId": user._id, "tags": formattedTags
+                }
                 // const videoObject = { ...formValues, "imgUrl": 'videoURL.href', "userId": 'user._id', "tags": formattedTags }
 
 
@@ -137,6 +152,11 @@ const Upload = () =>
                     <label htmlFor="tags">tags</label>
                     <input onChange={handleInput} type="text" name="tags" id="" placeholder="enter comma seperated tags" />
 
+                </div>
+
+                <div>
+                    <label htmlFor="thumbnail">thumbnail</label>
+                    <input ref={thumbnailInputRef} className="" type="file" name="thumbnail" id="" accept="image/*" />
                 </div>
 
                 <div>

@@ -41,12 +41,12 @@ const Sidebar = () =>
 
     return (
         //   
-        <div className={` ${ !menuOpen ? "w-fit  h-fit" : "w-screen  " }   bg-[#39393945] h-screen overflow-y-scroll sm:h-screen  sm:bg-[#202020] z-10 fixed sm:relative  sm:w-fit  pt-[1px]  `}>
+        <div className={` ${ !menuOpen ? "w-fit  h-fit" : "w-screen  " }   bg-[#39393945] h-screen  sm:h-screen  sm:bg-[#202020] z-10 fixed sm:relative  sm:w-fit  pt-[1px]  `}>
 
-            <div className={`${ menuOpen ? "w-3/4 px-4" : "w-full px-2" }   bg-[#202020]     lg:px-4`}>
+            <div className={`${ menuOpen ? "w-3/4 px-4" : "w-full px-2" }   bg-[#202020]  md:w-full    lg:px-4`}>
                 <div className='pt-3 flex flex-row gap-2 items-center justify-between sm:justify-center'>
                     <div className=' inline-block inline-block  sm:hidden' >
-                        <MenuIcon onClick={menuIconHandler} />
+                        <MenuIcon className='text-white' onClick={menuIconHandler} />
                     </div>
                     <Link to="/" className='text-2xl font-bold capitalize  text-red-600 flex flex-row gap-1'>
                         <Logo />
@@ -55,7 +55,7 @@ const Sidebar = () =>
                         </span>
                     </Link>
                 </div>
-                <div className={`${ menuOpen ? "flex" : "hidden" } flex-col sm:flex`}>
+                <div className={`${ menuOpen ? "flex" : "hidden" } overflow-y-scroll h-[90vh] flex-col sm:flex`}>
                     <ul className='sidebar-section'>
                         <li><Link to={''}><HomeOutlinedIcon />  Home</Link> </li>
                         <li><Link to={'explore'}><ExploreOutlinedIcon /> Explore</Link> </li>

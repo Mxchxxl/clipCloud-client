@@ -13,11 +13,13 @@ import { useSelector } from 'react-redux'
 const TopBar = () =>
 {
     const { user } = useSelector( ( state ) => state.user )
-    const { text } = useSelector( ( state ) => state.search )
+
     const inputRef = useRef( null )
     const inputContainerRef = useRef( null )
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+
 
 
     // const enlargeSearch = () =>
@@ -32,12 +34,16 @@ const TopBar = () =>
 
     const search = async () =>
     {
+        const text = inputRef.current.value
         if ( text )
         {
-
+            dispatch( updateSearch( text ) )
             const response = await axios.get( `/api/video/search?q=${ text }` )
             // console.log( response.data )
             dispatch( updateResults( response.data ) )
+
+            inputRef.current.value = ""
+
             //redirect to search results
             navigate( `/search/${ text }` )
         } else
@@ -47,11 +53,7 @@ const TopBar = () =>
 
     }
 
-    const handleInput = ( e ) =>
-    {
-        dispatch( updateSearch( e.target.value ) )
 
-    }
 
 
 
@@ -96,7 +98,7 @@ const TopBar = () =>
             <div className="flex  flex-row relative content-center items-center justify-center py-3 ">
                 <div ref={inputContainerRef} tabIndex={0} className='absolute right-[50%] translate-x-1/2 border  rounded  border-solid  pl-4 w-1/5 min-w-[50px] flex justify-center items-center flex-row sm:w-2/5 lg:w-[350px]  sm:py-0 '>
                     {/* focus-within:w-full focus-within:z-10 */}
-                    <input ref={inputRef} className=" min-w-[20px] inline-block border-none outline-none text-white h-8  sm:h-10 w-10/12 bg-transparent " type="text" name="" id="input" placeholder="search.." value={text} onChange={handleInput} />
+                    <input ref={inputRef} className=" min-w-[20px] inline-block border-none outline-none text-white h-8  sm:h-10 w-10/12 bg-transparent " type="text" name="" id="input" placeholder="search.." />
                     <SearchOutlinedIcon onClick={search} className='text-[#3d3a3a] w-2/12 bg-white rounded-full' />
                 </div>
                 <div className='ml-auto'>

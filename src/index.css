@@ -13,7 +13,7 @@
 
 
 .sidebar-section {
-  @apply list-none py-3 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0 sm:py-1 lg:py-3
+  @apply py-0 list-none py-3 relative after:block after:h-px after:opacity-50 after:bg-[#797575] after:w-full after:absolute after:bottom-0 after:left-0 sm:py-1 lg:py-3
 }
 
 

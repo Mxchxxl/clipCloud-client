@@ -7,8 +7,19 @@ const SearchResults = () =>
 {
 
     const { results } = useSelector( ( state ) => state.search )
+    let { text } = useSelector( ( state ) => state.search )
+    const searchText = text
     // console.log( results )
-    return (
+
+
+
+    return ( <>
+        <div className="flex items-center justify-start p-2 text-white ">
+            <p>
+                <span className="capitalize">search results for </span>
+                <span>{`"${ searchText }"`}</span>
+            </p>
+        </div>
         <VideoListWrapper >
             {results?.length >= 1 ? (
                 results.map( ( object, index ) =>
@@ -20,6 +31,7 @@ const SearchResults = () =>
             }
 
         </VideoListWrapper>
+    </>
     )
 }
 
