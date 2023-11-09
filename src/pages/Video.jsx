@@ -321,7 +321,15 @@ const Video = () =>
         <div className="grid  lg:grid-cols-12 flex-row xs:px-20 gap-10 text-white">
             <div className="lg:col-start-2 lg:col-span-7">
                 <div className="flex flex-col  gap-2">
-                    <video src={video.imgUrl} controls autoPlay></video>
+                    {video.imgUrl &&
+                        <video
+                            src={video.imgUrl}
+                            controls
+                            autoPlay
+                            muted
+                            playsInline
+                        ></video>
+                    }
                     <span className="capitalize xs:text-xl">{video.title}</span>
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-row gap-2 text-xs xs:text-base text-[#a3a6a9]">

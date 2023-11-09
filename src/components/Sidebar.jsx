@@ -41,7 +41,7 @@ const Sidebar = () =>
 
     return (
         //   
-        <div className={` ${ !menuOpen ? "w-fit  h-fit" : "w-screen  " }   bg-[#39393945] h-screen sm:overflow-y-scroll sm:h-screen  sm:bg-[#202020] z-10 fixed sm:relative  sm:w-fit  pt-[1px]  `}>
+        <div className={` ${ !menuOpen ? "w-fit  h-fit" : "w-screen  " }   bg-[#39393945] h-screen overflow-y-scroll sm:h-screen  sm:bg-[#202020] z-10 fixed sm:relative  sm:w-fit  pt-[1px]  `}>
 
             <div className={`${ menuOpen ? "w-3/4 px-4" : "w-full px-2" }   bg-[#202020]     lg:px-4`}>
                 <div className='pt-3 flex flex-row gap-2 items-center justify-between sm:justify-center'>
