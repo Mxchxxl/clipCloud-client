@@ -7,6 +7,8 @@ const Comment = ( { comment } ) =>
 {
 
     const [ commentPoster, setCommentPoster ] = useState( {} )
+    const [ timeAgo, setTimeAgo ] = useState( "" )
+
 
     const getCommentPoster = async () =>
     {
@@ -25,6 +27,8 @@ const Comment = ( { comment } ) =>
     useEffect( () =>
     {
         getCommentPoster()
+
+        setTimeAgo( timeSinceUpload( comment.createdAt ) )
     }, [] )
 
     return (
@@ -33,7 +37,7 @@ const Comment = ( { comment } ) =>
             <div className="col-start-2 col-span-9 text-xs md:text-sm">
                 <div>
                     <span className="capitalize">{commentPoster.name}</span>
-                    <span className="text-xs pl-4 text-[#a3a6a9]">{timeSinceUpload( comment.createdAt )} ago</span>
+                    <span className="text-xs pl-4 text-[#a3a6a9]">{timeAgo} ago</span>
                 </div>
                 <p>{comment.desc}</p>
             </div>

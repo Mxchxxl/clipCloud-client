@@ -7,7 +7,6 @@ import Explore from './pages/Explore'
 import History from './pages/History'
 import Home from './pages/Home'
 import Library from './pages/Library'
-import Maintenance from './components/Maintenance'
 import SearchResults from './pages/SearchResults'
 import Settings from './pages/Settings'
 import Sidebar from './components/Sidebar'
@@ -74,9 +73,8 @@ function App()
             <div className='main-content bg-[#161616] overflow-y-scroll h-full p-5 '>
 
               <Routes>
-                <Route path='/*' element={<Maintenance />} />
-                {/* <Route index path='/' element={<Home />} /> */}
-                {/* <Route path='/search/*' element={<SearchResults />} />
+                <Route index path='/' element={<Home />} />
+                <Route path='/search/*' element={<SearchResults />} />
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/history' element={<History />} />
                 <Route path='/library' element={<Library />} />
@@ -84,7 +82,7 @@ function App()
                 <Route path='/subscriptions' element={<Subscriptions />} />
                 <Route path='/category/:category' element={<Category />} />
                 <Route path='/video/:videoId' element={<Video />} />
-                <Route path='/upload' element={<Upload />} /> */}
+                <Route path='/upload' element={<Upload />} />
               </Routes>
 
 

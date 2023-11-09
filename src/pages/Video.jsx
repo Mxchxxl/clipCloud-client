@@ -72,7 +72,7 @@ const Video = () =>
 
             setLikesCount( request.data.likes.length )
             setDislikesCount( request.data.dislikes.length )
-            return request.data
+            return
         }
         catch ( e )
         {
@@ -81,11 +81,13 @@ const Video = () =>
 
     }
 
-    const getVideoPoster = async ( userId ) =>
+    const getVideoPoster = async () =>
     {
         // console.log( video )
         try
         {
+            console.log( video )
+            const { userId } = video
             const request = await axios.get( `/api/user/find/${ userId }` )
             setPoster( request.data )
             // console.log( request.data )
@@ -97,10 +99,11 @@ const Video = () =>
         }
     }
 
-    const getRecommendations = async ( tags ) =>
+    const getRecommendations = async () =>
     {
         try
         {
+            const { tags } = video
             const request = await axios.get( `/api/video/tag?tags=${ tags.join( ',' ) }` )
             if ( request.data.length <= 5 )
             {
@@ -118,11 +121,12 @@ const Video = () =>
         }
     }
 
-    const getComments = async ( id ) =>
+    const getComments = async () =>
     {
         try
         {
-            const request = await axios.get( `/api/comment/${ id }` )
+            const { _id } = video
+            const request = await axios.get( `/api/comment/${ _id }` )
             setComments( request.data )
             // console.log( 'gotten comments' )
         } catch ( e )
@@ -284,10 +288,21 @@ const Video = () =>
     {
         const getData = async () =>
         {
-            const { userId, tags, _id } = await getVideo()
-            getVideoPoster( userId )
-            getRecommendations( tags )
-            getComments( _id )
+            await getVideo()
+        }
+        getData()
+
+    }, [] )
+
+    useEffect( () =>
+    {
+        const getData = async () =>
+        {
+
+
+            getVideoPoster()
+            getRecommendations()
+            getComments()
             addVideoToHistory()
         }
         getData()
@@ -323,7 +338,7 @@ const Video = () =>
                             </div>
                             <p onClick={toggleVideoDescription} className="text-xs overflow-hidden">
                                 {video.desc}
-                                <span className="text-xs block">tags: {video.tags}</span>
+                                <span className="text-xs block">tags: {video.tags.join( ", " )}</span>
                             </p>
                         </div>
                         {
@@ -343,7 +358,7 @@ const Video = () =>
                                 <form onSubmit={( e ) => { e.preventDefault() }} action="" className="grid grid-cols-10">
                                     <img src="" alt="" className="col-start-1 col-span-1 w-10 h-10 " />
                                     <input className="col-start-2 col-span-9 bg-transparent  outline-none" type="text" placeholder="add a comment..." value={comment} onChange={handleCommentInput} />
-                                    <button onClick={postComment} className="col-start-10 col-span-1 bg-red-900 h-fit w-fit   p-2 rounded-sm">comment</button>
+                                    <button onClick={postComment} className="col-start-8 col-span-1 bg-red-900 h-fit w-fit   p-2 rounded-sm md:col-start-9">comment</button>
                                 </form>
                                 {
                                     comments.map( ( comment ) =>
