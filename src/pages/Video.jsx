@@ -323,12 +323,15 @@ const Video = () =>
                 <div className="flex flex-col  gap-2">
                     {video.imgUrl &&
                         <video
-                            src={video.videoUrl}
+
                             controls
                             autoPlay
+                            muted
+                            playsInline
 
-
-                        ></video>
+                        >
+                            <source src={video.videoUrl} type="video/mp4" />
+                        </video>
                     }
                     <span className="capitalize xs:text-xl">{video.title}</span>
                     <div className="flex flex-row justify-between">

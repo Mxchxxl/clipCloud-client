@@ -20,68 +20,59 @@ import { useLocation } from 'react-router-dom'
 
 const Sidebar = () =>
 {
-
-    // console.log( useLocation.location )
     const location = useLocation()
-
     const [ menuOpen, setMenuOpen ] = useState( false )
 
     const menuIconHandler = () =>
     {
         setMenuOpen( previous => !previous )
-        // console.log('click')
     }
-
 
     useEffect( () =>
     {
+        // Close the sidebar menu when the route changes
         setMenuOpen( false )
     }, [ location.pathname ] )
 
-
     return (
-        //   
-        <div className={` ${ !menuOpen ? "w-fit  h-fit" : "w-screen  " }   bg-[#39393945] h-screen  sm:h-screen  sm:bg-[#202020] z-10 fixed sm:relative  sm:w-fit  pt-[1px]  `}>
-
-            <div className={`${ menuOpen ? "w-3/4 px-4" : "w-full px-2" }   bg-[#202020]  md:w-full    lg:px-4`}>
+        <div className={` ${ !menuOpen ? "w-fit h-fit" : "w-screen h-screen" } bg-[#39393945] sm:bg-[#202020] z-10 absolute sm:relative sm:w-fit pt-[1px] md:h-screen`}>
+            <div className={`${ menuOpen ? "w-3/4 px-4" : "w-full px-2" } h-full bg-[#202020] md:w-full lg:px-4`}>
                 <div className='pt-3 flex flex-row gap-2 items-center justify-between sm:justify-center'>
-                    <div className=' inline-block inline-block  sm:hidden' >
+                    <div className='inline-block sm:hidden'>
                         <MenuIcon className='text-white' onClick={menuIconHandler} />
                     </div>
-                    <Link to="/" className='text-2xl font-bold capitalize  text-red-600 flex flex-row gap-1'>
+                    <Link to="/" className='text-2xl font-bold capitalize text-red-600 flex flex-row gap-1'>
                         <Logo />
                         <span className='hidden lg:inline-block'>
                             clipcloud
                         </span>
                     </Link>
                 </div>
-                <div className={`${ menuOpen ? "flex" : "hidden" } overflow-y-scroll h-[90vh] flex-col sm:flex`}>
+                {/* This div is made scrollable */}
+                <div className={`${ menuOpen ? "flex" : "hidden" } scrollable overflow-y-scroll h-[90%] pb-[55px]  flex-col sm:flex`}>
                     <ul className='sidebar-section'>
-                        <li><Link to={''}><HomeOutlinedIcon />  Home</Link> </li>
+                        <li><Link to={''}><HomeOutlinedIcon /> Home</Link> </li>
                         <li><Link to={'explore'}><ExploreOutlinedIcon /> Explore</Link> </li>
-                        <li><Link to={'subscriptions'}> <SubscriptionsOutlinedIcon />  Subscriptions</Link></li>
-
+                        <li><Link to={'subscriptions'}> <SubscriptionsOutlinedIcon /> Subscriptions</Link></li>
                     </ul>
 
                     <ul className='sidebar-section'>
-                        <li ><Link to={'library'}> <LibraryMusicOutlinedIcon />  Library</Link></li>
-                        <li><Link to={'history'}><YoutubeSearchedForOutlinedIcon />  History</Link> </li>
+                        <li><Link to={'library'}> <LibraryMusicOutlinedIcon /> Library</Link></li>
+                        <li><Link to={'history'}><YoutubeSearchedForOutlinedIcon /> History</Link> </li>
                     </ul>
 
                     <ul className='sidebar-section '>
-                        <li><Link to={'category/music'}> <MusicVideoOutlinedIcon />  Music</Link></li>
-                        <li><Link to={'category/sports'}><ScoreboardOutlinedIcon />  Sports</Link> </li>
-                        <li><Link to={'category/gaming'}><SportsEsportsOutlinedIcon />  Gaming</Link> </li>
-                        <li><Link to={'category/movies'}><MovieFilterOutlinedIcon />  Movies</Link> </li>
-                        <li><Link to={'category/news'}><NewspaperOutlinedIcon />  News</Link> </li>
-
+                        <li><Link to={'category/music'}> <MusicVideoOutlinedIcon /> Music</Link></li>
+                        <li><Link to={'category/sports'}><ScoreboardOutlinedIcon /> Sports</Link> </li>
+                        <li><Link to={'category/gaming'}><SportsEsportsOutlinedIcon /> Gaming</Link> </li>
+                        <li><Link to={'category/movies'}><MovieFilterOutlinedIcon /> Movies</Link> </li>
+                        <li><Link to={'category/news'}><NewspaperOutlinedIcon /> News</Link> </li>
                     </ul>
 
                     <ul className='sidebar-section'>
-                        <li><Link to={'settings'}> <SettingsOutlinedIcon />  Settings</Link></li>
-                        <li><Link><OutlinedFlagOutlinedIcon />  Report</Link></li>
-                        <li><Link> <HelpCenterOutlinedIcon />  Help</Link></li>
-
+                        <li><Link to={'settings'}> <SettingsOutlinedIcon /> Settings</Link></li>
+                        <li><Link to={''}><OutlinedFlagOutlinedIcon /> Report</Link></li>
+                        <li><Link to={''}> <HelpCenterOutlinedIcon /> Help</Link></li>
                     </ul>
                 </div>
             </div>

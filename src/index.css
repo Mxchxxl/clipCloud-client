@@ -7,9 +7,18 @@
   --topbar-height: 200px;
 }
 
+body{
+  overflow: hidden;
+}
+
 *{
   scrollbar-width: none;
 }
+
+.scrollable {
+  -webkit-overflow-scrolling: touch;
+}
+
 
 
 .sidebar-section {
