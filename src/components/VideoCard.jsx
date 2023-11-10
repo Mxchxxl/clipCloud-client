@@ -22,21 +22,33 @@ const VideoCard = ( { video } ) =>
     }, [] )
 
     return (
-        <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10" to={`/video/${ video._id }`}>
-            <div>
-                <img src={`${ video.imgUrl }`} alt="" className="w-full aspect-video " />
-                <div className="mt-3 grid grid-cols-8 w-full">
-                    {userChannel.img ?
-                        <img className="w-8 h-8" src={`${ userChannel.img }`} alt="" />
-                        : <AccountCircleIcon className="w-8 h-8 text-red-600" />}
-                    <div className="col-start-2 col-span-6 ml-3 flex flex-col">
-                        <span className="font-semibold text-base capitalize ">{video.title}</span>
-                        <span className="text-gray-700 capitalize text-sm">{`${ userChannel.name }`}</span>
-                        <div className="text-xs"><span>{video.views} view</span> &middot; <span>{timeSinceUpload( video.createdAt )} ago</span></div>
-                    </div>
-                </div>
-            </div>
-        </Link>
+        <>
+            {
+                userChannel?.name ? (
+                    <Link className="no-underline inline-block  m-2 max-w-[288px] mb-10" to={`/video/${ video._id }`}>
+                        <div>
+                            <img src={`${ video.imgUrl }`} alt="" className="w-full aspect-video " />
+                            <div className="mt-3 grid grid-cols-8 w-full">
+                                {userChannel.img ?
+                                    <img className="w-8 h-8" src={`${ userChannel.img }`} alt="" />
+                                    : <AccountCircleIcon className="w-8 h-8 text-red-600" />}
+                                <div className="col-start-2 col-span-6 ml-3 flex flex-col text-white">
+                                    <span className="font-semibold text-base capitalize ">{video.title}</span>
+                                    <span className="text-gray-700 capitalize text-sm">{`${ userChannel.name }`}</span>
+                                    <div className="text-xs"><span>{video.views} views</span> &middot; <span>{timeSinceUpload( video.createdAt )} ago</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                ) :
+                    (
+                        <div className="no-underline inline-block  m-2 max-w-[288px] mb-10">
+                            <p className="text-white italic text-center">video no longer exists</p>
+                        </div>
+                    )
+            }
+        </>
+
     )
 }
 

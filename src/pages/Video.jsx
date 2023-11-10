@@ -64,7 +64,8 @@ const Video = () =>
         try
         {
             const request = await axios.get( `/api/video/find/${ videoId }` )
-            setVideo( request.data )
+            setVideo( { ...request.data, views: request.data.views + 1 } )
+            updateViewCount( request.data._id )
             // console.log( request.data )
             if ( ( user ) && request.data.likes.includes( user._id ) )
             {
@@ -80,6 +81,19 @@ const Video = () =>
             console.log( e.message )
         }
 
+    }
+
+    const updateViewCount = async ( id ) =>
+    {
+        try
+        {
+
+            const request = await axios.get( `/api/video/addview/${ id }` )
+            // console.log( request.data )
+        } catch ( e )
+        {
+            console.log( e.message )
+        }
     }
 
     const getVideoPoster = async () =>
@@ -330,6 +344,7 @@ const Video = () =>
                             playsInline
 
                         >
+
                             <source src={video.videoUrl} type="video/mp4" />
                         </video>
                     }
